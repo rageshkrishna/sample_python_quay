@@ -4,10 +4,6 @@ python:
   - 3.4
   - 2.7
   
-branches:
- only:
-  - "post-ci"
-
 env:
   global:
     - FOO=FUBU
@@ -35,7 +31,6 @@ build:
     - docker build -t=quay.io/shippablequay/sample_python_quay .
     - docker push quay.io/shippablequay/sample_python_quay
     
-
 
 integrations:
   hub:
