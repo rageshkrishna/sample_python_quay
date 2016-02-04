@@ -2,6 +2,7 @@ language: python
 
 python:
   - 3.4
+  - 2.7
 
 env:
   global:
@@ -27,6 +28,11 @@ build:
   post_ci:
     - docker build -t=quay.io/shippablequay/sample_python_quay .
     - docker push quay.io/shippablequay/sample_python_quay
+    - docker build --rm -t=quay.io/shippablequay/sample_python_quay:test .
+    - docker build --rm -t=quay.io/shippablequay/sample_python_quay:qa .
+    - docker push quay.io/shippablequay/sample_python_quay:test
+    - docker push quay.io/shippablequay/sample_python_quay:qa
+
 
 
 integrations:
