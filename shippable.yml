@@ -6,7 +6,7 @@ python:
   
 branches:
  only:
-  - "post-ci"
+  - "11post-ci"
 
 env:
   global:
