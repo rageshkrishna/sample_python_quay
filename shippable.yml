@@ -33,6 +33,4 @@ integrations:
   hub:
     - integrationName: "ship-quay"
       type: "quay.io"
-      branches:
-        only:
-          - master
+      
