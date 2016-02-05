@@ -25,8 +25,8 @@ build:
   post_ci:
     - docker build -t=quay.io/shippablequay/pyt-public .
     - docker push quay.io/shippablequay/pyt-public
-    - docker build --rm -t=quay.io/sshippablequay/pyt-public:test .
-    - docker build --rm -t=shippablequay/pyt-public:qa .
+    - docker build --rm -t=quay.io/shippablequay/pyt-public:test .
+    - docker build --rm -t=quay.io/shippablequay/pyt-public:qa .
     - docker push quay.io/shippablequay/pyt-public:test
     - docker push quay.io/shippablequay/pyt-public:qa
 
