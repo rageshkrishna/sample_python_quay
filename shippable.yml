@@ -9,22 +9,29 @@ env:
 
   matrix:
     - M1=ONE
+services:
+  - redis
 
 build:
-  pre_ci:
-    - docker build -t=quay.io/shippablequay/sample_py_quay .
+ # pre_ci:
+  #  - docker build -t=quay.io/shippablequay/sample_py_quay .
 
   pre_ci_boot:
-    image_name: quay.io/shippablequay/sample_py_quay
-    image_tag: latest
-    pull: false
+    image_name: drydock/u12pytpls
+    image_tag: tip
+    pull: true
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
     - ps -eax
     - ls -al
-    - echo $M1
-
+    - pip install -r requirements.txt
+    - mkdir -p shippable/testresults
+    - mkdir -p shippable/codecoverage
+    - which python
+    - coverage run `which nosetests` test.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
+    - coverage xml -o shippable/codecoverage/coverage.xml
+ 
   post_ci:
     - docker push quay.io/shippablequay/sample_py_quay
 
