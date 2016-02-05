@@ -23,8 +23,6 @@ build:
     pull: true
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
-  
-
   ci:
     - ps -eax
     - ls -al
@@ -32,8 +30,6 @@ build:
   post_ci:
     - docker build -t=quay.io/shippablequay/pyt-public .
     - docker push quay.io/shippablequay/pyt-public
-    
-
 
 
 integrations:
