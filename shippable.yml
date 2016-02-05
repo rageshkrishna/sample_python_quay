@@ -17,6 +17,11 @@ env:
 build:
   #pre_ci:
    # - docker build -t=quay.io/shippablequay/sample_py_quay .
+  pre_ci_boot:
+    image_name: quay.io/shippablequay/sample_py_quay
+    image_tag: latest
+    pull: true
+    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   
 
@@ -27,10 +32,7 @@ build:
   post_ci:
     - docker build -t=quay.io/shippablequay/pyt-public .
     - docker push quay.io/shippablequay/pyt-public
-    - docker build --rm -t=quay.io/sshippablequay/pyt-public:test .
-    - docker build --rm -t=shippablequay/pyt-public:qa .
-    - docker push quay.io/shippablequay/pyt-public:test
-    - docker push quay.io/shippablequay/pyt-public:qa
+    
 
 
 
