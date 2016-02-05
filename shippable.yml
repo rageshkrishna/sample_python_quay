@@ -15,7 +15,7 @@ env:
 
 build:
   
- ci:
+  ci:
     - ps -eax
     - ls -al
     - pip install -r requirements.txt
