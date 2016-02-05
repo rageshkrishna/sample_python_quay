@@ -11,6 +11,7 @@ env:
 
   matrix:
     - M1=ONE
+    
 
 build:
   
@@ -23,6 +24,7 @@ build:
     - which python
     - coverage run `which nosetests` test.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
     - coverage xml -o shippable/codecoverage/coverage.xml
+    - echo $M1
 
 
   post_ci:
