@@ -27,7 +27,7 @@ build:
     - ls -al
     - echo $M1
     - mkdir -p $HOME/sample_ve/
-    - sudo virtualenv -p $SHIPPABLE_PYTHON $HOME/sample_ve/
+    - sudo virtualenv -p $VIRTUALENV_PYTHON $HOME/sample_ve/
     - source $HOME/sample_ve/bin/activate
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
