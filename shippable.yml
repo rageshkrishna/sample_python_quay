@@ -43,6 +43,6 @@ build:
 
 integrations:
   hub:
-    - integrationName: "ship-quay"
+    - integrationName: "Ragesh - Quay"
       type: "quay.io"
       
