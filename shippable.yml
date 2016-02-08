@@ -27,8 +27,14 @@ build:
     - ls -al
     - echo $M1
     - mkdir -p $HOME/sample_ve/
-    - sudo virtualenv -p $SHIPPABLE_PYTHON $HOME/sample_ve/
+    - |
+      if [ "SHIPPABLE_PYTHON_VERSION" != "pypy" ]; then
+        virtualenv -p /usr/bin/python$SHIPPABLE_PYTHON_VERSION $HOME/sample_ve
+      else
+        virtualenv -p /usr/bin/pypy $HOME/sample_ve
+      fi
     - source $HOME/sample_ve/bin/activate
+    - python --version
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
     - pip install -r requirements.txt
