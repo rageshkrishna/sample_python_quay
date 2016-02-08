@@ -45,8 +45,8 @@ build:
     - coverage xml -o shippable/codecoverage/coverage.xml
     - cat shippable/codecoverage/coverage.xml
 
-integrations:
-  hub:
-    - integrationName: "Ragesh - Quay"
-      type: "quay.io"
+#integrations:
+#  hub:
+#    - integrationName: "Ragesh - Quay"
+#      type: "quay.io"
       
